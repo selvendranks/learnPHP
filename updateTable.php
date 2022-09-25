@@ -68,6 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE `students` SET `name`=$name , `email`=$email , `DOB`=$DOB , `dept`=$dept WHERE `sno`=$sno";
     $result = mysqli_query($conn, $sql);
 
+    //numbers of rows thats been affected
+    $aff  = mysqli_affected_rows($conn);
+    echo("affected rows is :".$aff);
+
     if ($result) {
         echo '<script>alert("Value succesfully added to database")</script>';
     } else {
